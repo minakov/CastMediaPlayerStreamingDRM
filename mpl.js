@@ -388,15 +388,15 @@ onload = function() {
   * 2) When the application is not actually loading the media element (for
   *    example if LOAD is used to load an image).
   **/
-  mediaManager['onLoadMetadataOrig'] = mediaManager.onLoadMetadataLoaded;
+  mediaManager['onMetadataLoadedOrig'] = mediaManager.onMetadataLoaded;
   /**
   * Called when load has completed, overridden to handle application specific logic.
   * @param event
   */
-  mediaManager.onLoadMetadataLoaded = function(event) {
-    console.log("### Media Manager - LOADED METADATA: " + JSON.stringify(event));
-    setDebugMessage('mediaManagerMessage', 'LOADED METADATA: ' + JSON.stringify(event));
-    mediaManager['onLoadMetadataOrig'](event);
+  mediaManager.onMetadataLoaded = function(loadInfo) {
+    console.log("### Media Manager - LOADED METADATA: " + JSON.stringify(loadInfo));
+    setDebugMessage('mediaManagerMessage', 'LOADED METADATA: ' + JSON.stringify(loadInfo));
+    mediaManager['onMetadataLoadedOrig'](loadInfo);
   }
 
   /**
@@ -528,7 +528,7 @@ onload = function() {
         'mediaElement': mediaElement,
         'url': url
       });
-     
+
       if( licenseUrl ) {
         mediaHost['updateLicenseRequestInfoOrig'] = mediaHost.updateLicenseRequestInfo;
         mediaHost.updateLicenseRequestInfo = function(requestInfo) {
@@ -599,7 +599,7 @@ onload = function() {
   * come into play. Default value is 10 seconds.
   * @type {number|undefined}
   **/
-  appConfig.maxInactivity = 6000; // 10 minutes for testing, use default 10sec in prod by not setting this value
+  // appConfig.maxInactivity = 6000; // 10 minutes for testing, use default 10sec in prod by not setting this value
 
   /**
   * Initializes the system manager. The application should call this method when
