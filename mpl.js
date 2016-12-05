@@ -599,7 +599,7 @@ onload = function() {
   * come into play. Default value is 10 seconds.
   * @type {number|undefined}
   **/
-  appConfig.maxInactivity = 6000; // 10 minutes for testing, use default 10sec in prod by not setting this value
+  // appConfig.maxInactivity = 6000; // 10 minutes for testing, use default 10sec in prod by not setting this value
 
   /**
   * Initializes the system manager. The application should call this method when
