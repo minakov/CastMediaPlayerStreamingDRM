@@ -15,7 +15,7 @@
 /**
  * global variables
  */
-var applicationID = '';
+var applicationID = 'E2A99938';
 var MESSAGE_NAMESPACE = 'urn:x-cast:com.google.cast.sample.mediaplayer';
 var currentMedia = null;
 var currentVolume = 0.5;
